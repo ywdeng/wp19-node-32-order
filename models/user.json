@@ -1,0 +1,34 @@
+[  
+  {  
+    "id":"0000000000",
+    "name":"店長",
+    "tel":"02-8662-1688",
+    "addr":"台北市羅斯福路六段218號10樓",
+    "password":"04d875afd1a496668edb9f75c7314598ed76ec9d0a6040bb9f5781ec07be0fcf",
+    "isAdmin":true
+  },
+  {  
+    "id":"0225381111",
+    "name":"許蓋功",
+    "tel":"02-2538-1111",
+    "addr":"台北市中山區大直街70號",
+    "password":"9f57cc7f55fd1c2f60c47c47dcc595fd7a282a9f0056ada8313ce797cc536c54",
+    "isAdmin":false
+  },
+  {  
+    "id":"0233663366",
+    "name":"林淑惠",
+    "tel":"02-3366-3366",
+    "addr":"臺北市羅斯福路四段一號",
+    "password":"39047349eff53f2b1c76db2b584c1c2d510fabdea54f0c4830df74b3658d181f",
+    "isAdmin":false
+  },
+  {  
+    "id":"0227333141",
+    "name":"陳俊男",
+    "tel":"02-2733-3141",
+    "addr":"臺北市大安區基隆路4段43號",
+    "password":"23848390994df3d3f759afefbc4c1d333b2f3129cbdaf8a15a15fca6984f309d",
+    "isAdmin":false
+  }
+]
