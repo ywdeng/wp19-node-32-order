@@ -5,6 +5,7 @@
 
 ## Run locally
 
+1. Install [MariaDB](https://downloads.mariadb.org/)
 1. Install [Node.js and npm](https://nodejs.org/)
 1. Run `git clone https://github.com/ywdeng/wp19-node-32-order.git`
 1. Run `cd wp19-node-32-order`
