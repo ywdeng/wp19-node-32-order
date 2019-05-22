@@ -25,7 +25,7 @@ class OrderDAO extends baseClass.DAO {
             if (err) throw err;
             conn.query(DDL_ORDERS, (err, result) => {
                 if (err) throw err;
-                console.log("Table " + this.tableName + " created.");
+                console.log("Table " + this.tableName + " OK.");
             });
         });
     }

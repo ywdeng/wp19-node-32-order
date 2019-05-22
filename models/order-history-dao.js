@@ -22,7 +22,7 @@ class OrderHistoryDAO extends baseClass.DAO {
             if (err) throw err;
             conn.query(DDL_ORDER_HISTORY, (err, result) => {
                 if (err) throw err;
-                console.log("Table " + this.tableName + " created.");
+                console.log("Table " + this.tableName + " OK.");
             });
         });
     }

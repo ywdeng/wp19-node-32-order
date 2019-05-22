@@ -21,7 +21,7 @@ class UserDAO extends baseClass.DAO {
             if (err) throw err;
             conn.query(DDL_USERS, (err, result) => {
                 if (err) throw err;
-                console.log("Table " + this.tableName + " created.");
+                console.log("Table " + this.tableName + " OK.");
             });
             conn.query("SELECT COUNT(*) AS NUM FROM " + this.tableName, (err, rows) => {
                 if (err) throw err;
