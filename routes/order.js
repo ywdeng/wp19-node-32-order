@@ -72,57 +72,9 @@ router.get('/:id', userDAO.forceLogin, (req, res, next) => {
     });
 });
 
-function createOrder(req) {
-    var list = [];
-    for (var i = 0; i < prodSpec.products.length; i++) {
-        var id = prodSpec.products[i].id;
-        var item = {};
-        if (req.body[id + "Sum"] > 0) {
-            item.name = prodSpec.products[i].name;
-            item.size = "小杯(S)";
-            if (req.body[id + "Size"] == "M") {
-                item.size = "中杯(M)"
-            } else if (req.body[id + "Size"] == "L") {
-                item.size = "大杯(L)";
-            } else if (req.body[id + "Size"] == "XL") {
-                item.size = "特大杯(XL)";
-            }
-            item.price = Number(req.body[id + "Price"]);
-            item.qty = Number(req.body[id + "Qty"]);
-            item.sum = Number(req.body[id + "Sum"]);
-            item.note = "";
-            if (req.body[id + "Ice"] == "1")
-                item.note = "少冰 ";
-            else if (req.body[id + "Ice"] == "2")
-                item.note = "去冰 ";
-
-            if (req.body[id + "Sugar"] == "1")
-                item.note += "減糖";
-            else if (req.body[id + "Sugar"] == "2")
-                item.note += "微糖";
-            else if (req.body[id + "Sugar"] == "3")
-                item.note += "無糖";
-
-            if (item.note == "") item.note = "正常";
-            list.push(item);
-        }
-    }
-    var ordr = {
-        custName: req.body.custName,
-        custTel: req.body.custTel,
-        custAddr: req.body.custAddr,
-        qty: req.body.Quantity,
-        total: req.body.Total,
-        orderDate: new Date(),
-        status: orderDAO.STATUS[0],
-        items: list
-    };
-    return ordr;
-}
-
 // 建立新訂單
 router.post("/", function (req, res, next) {
-    var order = createOrder(req);
+    var order = orderDAO.createOrder(req);
     if (req.session && req.session.user) {
         // user place order after login
         order.userId = req.session.user.id;

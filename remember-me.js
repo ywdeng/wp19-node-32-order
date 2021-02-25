@@ -13,10 +13,16 @@ class RememberMe {
             console.log('User ' + req.session.user.id + ' already login.');
         } else if (req.cookies && req.cookies.rememberMe) {
             console.log('Auto login with cookie ' + req.cookies.rememberMe);
-            var user = userDAO.findByID(req.cookies.rememberMe);
-            if (user && user.id) {
-                req.session.user = user;
-            }
+            userDAO.findByID(req.cookies.rememberMe, (err, user) => {
+                if (err) {
+                    console.error(err);
+                    return next(createError(500));
+                } else if (user && user.id) {
+                    if (req.session) {
+                        req.session.user = user;
+                    }
+                }
+            });
         }
         next();
     }
